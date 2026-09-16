@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research &middot; Rochak Ghimire</title>
+<meta name="description" content="Undergraduate research at Morgan State's HAX Lab and a SAIRI internship at CEAMLS, building a multimodal pipeline for cardiovascular disease detection.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Research &middot; Rochak Ghimire">
+<meta property="og:description" content="Undergraduate research at Morgan State's HAX Lab and a SAIRI internship at CEAMLS, building a multimodal pipeline for cardiovascular disease detection.">
+<meta property="og:url" content="https://kenzoh33.github.io/research.html">
+<meta property="og:image" content="https://kenzoh33.github.io/assets/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Research &middot; Rochak Ghimire">
+<meta name="twitter:description" content="Undergraduate research at Morgan State's HAX Lab and a SAIRI internship at CEAMLS, building a multimodal pipeline for cardiovascular disease detection.">
+<meta name="twitter:image" content="https://kenzoh33.github.io/assets/images/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500;600;700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="site-nav" aria-label="Primary">
+    <a class="nav-name" href="index.html">Rochak Ghimire</a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="research.html" aria-current="page">Research</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="achievements.html">Achievements</a></li>
+      <li><a href="resume.html">Resume</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="wrap">
+    <div class="editorial-row">
+      <h1 class="editorial-label">Research</h1>
+      <div class="editorial-content" data-reveal-group>
+
+        <article class="entry reveal">
+          <h2>HAX Lab</h2>
+          <p class="entry-meta">Human-AI eXperience Lab, Morgan State University</p>
+          <p>Undergraduate researcher under the lab's director.</p>
+        </article>
+
+        <article class="entry reveal">
+          <h2>SAIRI Research Internship</h2>
+          <p class="entry-meta">CEAMLS Lab, Morgan State University &middot; May &ndash; Jul 2026</p>
+          <p>I engineered a multimodal concept-drift detection pipeline for early cardiovascular disease prediction. The core is a three-branch architecture: a 1D CNN reading the time domain, a 2D CNN reading time-frequency representations, and a Transformer reading frequency-domain patterns, trained across ECG and PPG signals in PyTorch. It reached 87.86% drift-classification accuracy with a 0.8446 energy-drift correlation.</p>
+          <p>Underneath that sits a cross-modal Complementary Feature Domain (CFD) preprocessing pipeline I built with pyCFD 3.0, NumPy, Pandas, and scikit-learn, processing over 30,000 physiological signals across PTB-XL (21,000 records) and MIMIC (10,000 segments) through four benchmarking experiments on three datasets. Externally validated on the held-out MIMIC waveform set, it beat ADWIN, Page-Hinkley, MMD, and Dropout Uncertainty baselines by up to 40 percentage points.</p>
+          <div class="photo-grid">
+            <figure class="photo reveal reveal-img">
+              <picture>
+                <source srcset="assets/images/sairi-presentation-2.webp" type="image/webp">
+                <img src="assets/images/sairi-presentation-2.jpg" alt="Presentation slide introducing the SAIRI project: an AI pipeline that fuses ECG, PPG, and respiration signals to detect cardiovascular disease risk earlier.">
+              </picture>
+              <figcaption>Presenting the SAIRI project introduction at Morgan State.</figcaption>
+            </figure>
+            <figure class="photo reveal reveal-img">
+              <picture>
+                <source srcset="assets/images/sairi-presentation-1.webp" type="image/webp">
+                <img src="assets/images/sairi-presentation-1.jpg" alt="Team presenting SAIRI drift-classification results, including a PTB-XL heatmap, at a podium branded with the Morgan State seal.">
+              </picture>
+              <figcaption>Presenting drift-classification results on the PTB-XL dataset.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer wrap">
+  <p>Rochak Ghimire &middot; <a class="link-underline" href="about.html#contact">Get in touch</a></p>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

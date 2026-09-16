@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redis Clone &middot; Rochak Ghimire</title>
+<meta name="description" content="A Redis-compatible server built from raw TCP sockets, benchmarked at 101,010 requests per second.">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Redis Clone &middot; Rochak Ghimire">
+<meta property="og:description" content="A Redis-compatible server built from raw TCP sockets, benchmarked at 101,010 requests per second.">
+<meta property="og:url" content="https://kenzoh33.github.io/projects/redis-clone.html">
+<meta property="og:image" content="https://kenzoh33.github.io/assets/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Redis Clone &middot; Rochak Ghimire">
+<meta name="twitter:description" content="A Redis-compatible server built from raw TCP sockets, benchmarked at 101,010 requests per second.">
+<meta name="twitter:image" content="https://kenzoh33.github.io/assets/images/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500;600;700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="site-nav" aria-label="Primary">
+    <a class="nav-name" href="../index.html">Rochak Ghimire</a>
+    <ul class="nav-links">
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../projects.html" aria-current="page">Projects</a></li>
+      <li><a href="../achievements.html">Achievements</a></li>
+      <li><a href="../resume.html">Resume</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="wrap">
+    <div class="editorial-row">
+      <p class="editorial-label">Project</p>
+      <div class="editorial-content" data-reveal-group>
+        <p class="back-link reveal"><a class="link-underline" href="../projects.html">&larr; All projects</a></p>
+        <h1 class="reveal">Redis Clone</h1>
+        <p class="repo-link reveal"><a class="link-underline" href="https://github.com/Kenzoh33/redis-clone" target="_blank" rel="noopener">View on GitHub &#8599;</a></p>
+        <p class="reveal">An in-memory key-value server built from raw TCP sockets, with the RESP2 wire protocol hand-written from the spec rather than borrowed from a library. I validated it against the real <code>redis-py</code> client with zero client-side modifications. Anything written against actual Redis works against this without knowing the difference.</p>
+        <p class="reveal">It implements the full core command set (GET, SET, DEL, EXISTS, INCR/DECR, APPEND, MSET/MGET, TYPE) plus TTL/EXPIRE with both passive and active expiration, and holds up under 50+ simultaneous clients with zero lost updates. Durability comes from a crash-safe append-only log; replication comes from a primary-replica setup with full resync on connect, real-time write streaming, and replicas enforced read-only. I validated both by killing the server mid-write and confirming full recovery, across an automated suite of 40+ tests spanning pytest, real client-library integration, and subprocess-spawned crash-recovery and replication scenarios.</p>
+        <p class="reveal">Benchmarked at 101,010 requests/sec on reads (sub-millisecond p50) and about 23,000 requests/sec on durable writes. I traced the write-path bottleneck to the per-command <code>fsync()</code> call: the exact durability-versus-throughput tradeoff real databases have to make.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer wrap">
+  <p>Rochak Ghimire &middot; <a class="link-underline" href="../about.html#contact">Get in touch</a></p>
+</footer>
+
+<script src="../js/main.js" defer></script>
+</body>
+</html>

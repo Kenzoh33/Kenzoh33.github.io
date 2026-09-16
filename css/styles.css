@@ -1,0 +1,506 @@
+/* ---------------------------------------------------
+   Design tokens (from style-guide.html, Phase 2 approved)
+--------------------------------------------------- */
+:root {
+  --bg: #FAF8F4;
+  --bg-alt: #F1EDE6;
+  --ink: #1C1B19;
+  --ink-soft: #6B6560;
+  --border: #E4DFD6;
+  --accent: #2F4B3C;
+  --accent-tint: #E3E9E4;
+
+  --font-display: 'Newsreader', Georgia, serif;
+  --font-body: 'Archivo', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+
+  --measure: 68ch;
+}
+
+/* Cross-document page transitions where supported; ignored elsewhere */
+@view-transition {
+  navigation: auto;
+}
+
+/* ---------------------------------------------------
+   Reset
+--------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main { flex: 1 0 auto; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+ul { margin: 0; padding: 0; list-style: none; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; margin: 0; }
+p { margin: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------------------------------------------------
+   Accessibility
+--------------------------------------------------- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--ink);
+  color: var(--bg);
+  padding: var(--space-3) var(--space-5);
+  z-index: 100;
+}
+.skip-link:focus {
+  left: var(--space-4);
+  top: var(--space-4);
+}
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ---------------------------------------------------
+   Layout shell
+--------------------------------------------------- */
+.wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+}
+
+/* ---------------------------------------------------
+   Header / nav
+--------------------------------------------------- */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 10;
+}
+.site-nav {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+.nav-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.125rem;
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+.nav-name:hover, .nav-name:focus-visible { color: var(--accent); }
+.nav-links {
+  display: flex;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+  font-size: 0.875rem;
+}
+.nav-links a {
+  position: relative;
+  text-decoration: none;
+  color: var(--ink-soft);
+  padding-bottom: 3px;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 200ms ease;
+}
+.nav-links a:hover,
+.nav-links a:focus-visible,
+.nav-links a[aria-current="page"] {
+  color: var(--ink);
+}
+.nav-links a:hover::after,
+.nav-links a:focus-visible::after,
+.nav-links a[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+/* ---------------------------------------------------
+   Shared underline-link style
+--------------------------------------------------- */
+.link-underline {
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 3px;
+  transition: color 150ms ease, text-decoration-color 150ms ease;
+}
+.link-underline:hover,
+.link-underline:focus-visible {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+/* ---------------------------------------------------
+   Editorial row: narrow label column + wide content column
+   Reused across About / Research / Projects / Achievements / Resume / Contact
+--------------------------------------------------- */
+.editorial-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  padding: var(--space-8) 0 var(--space-9);
+}
+.editorial-label {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+}
+.editorial-content {
+  max-width: var(--measure);
+}
+.editorial-content > * + * { margin-top: var(--space-5); }
+
+@media (min-width: 640px) {
+  .editorial-row {
+    grid-template-columns: 140px 1fr;
+    gap: var(--space-6);
+  }
+}
+@media (min-width: 1024px) {
+  .editorial-row {
+    grid-template-columns: 220px 1fr;
+    gap: var(--space-8);
+  }
+}
+
+/* ---------------------------------------------------
+   Decorative background: drifting rule lines
+   Used behind the hero and behind the About page
+--------------------------------------------------- */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  min-height: 78vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hero-section .wrap {
+  position: relative;
+  z-index: 1;
+}
+.bg-lines {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    115deg,
+    transparent 0px,
+    transparent 78px,
+    rgba(47, 75, 60, 0.12) 79px,
+    rgba(47, 75, 60, 0.12) 80px
+  );
+  background-size: 480px 480px;
+  animation: drift-lines 45s linear infinite;
+}
+@keyframes drift-lines {
+  from { background-position: 0 0; }
+  to { background-position: 480px 480px; }
+}
+
+/* Page-wide version of the same line pattern, painted on the body itself
+   so it covers the full page regardless of content height (used on About) */
+body.page-lines {
+  background-image: repeating-linear-gradient(
+    115deg,
+    transparent 0px,
+    transparent 78px,
+    rgba(47, 75, 60, 0.12) 79px,
+    rgba(47, 75, 60, 0.12) 80px
+  );
+  background-size: 480px 480px;
+  animation: drift-lines 45s linear infinite;
+}
+
+/* ---------------------------------------------------
+   Hero (home page only)
+--------------------------------------------------- */
+.hero {
+  padding: var(--space-9) 0 var(--space-8);
+  display: grid;
+  gap: var(--space-6);
+}
+.hero h1 {
+  font-size: clamp(2.5rem, 1.9rem + 3vw, 4rem);
+  margin-bottom: var(--space-3);
+}
+.hero-status {
+  color: var(--ink-soft);
+  font-size: 1rem;
+}
+.hero-line {
+  font-size: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+  max-width: 52ch;
+  line-height: 1.5;
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    grid-template-columns: 7fr 5fr;
+    align-items: end;
+  }
+  .hero-intro { grid-column: 1; }
+  .hero-line { grid-column: 2; justify-self: end; text-align: left; }
+}
+
+@keyframes fade-up-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero h1 { animation: fade-up-in 600ms ease-out both; }
+.hero-status { animation: fade-up-in 600ms ease-out 120ms both; }
+.hero-line { animation: fade-up-in 600ms ease-out 240ms both; }
+
+/* ---------------------------------------------------
+   Research & Projects entries (narrative pages)
+--------------------------------------------------- */
+.entry + .entry {
+  margin-top: var(--space-7);
+  padding-top: var(--space-7);
+  border-top: 1px solid var(--border);
+}
+.entry h2 {
+  font-size: 1.375rem;
+  margin-bottom: var(--space-1);
+}
+.entry-meta {
+  color: var(--ink-soft);
+  font-size: 0.875rem;
+  margin-bottom: var(--space-4);
+}
+.entry p + p { margin-top: var(--space-4); }
+
+/* ---------------------------------------------------
+   Projects index grid
+--------------------------------------------------- */
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+@media (min-width: 640px) {
+  .project-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.project-card {
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-5);
+  transition: transform 200ms ease, border-color 200ms ease;
+}
+.project-card:hover,
+.project-card:focus-within {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+.project-card h2 {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-3);
+}
+.project-card h2 a { text-decoration: none; transition: color 150ms ease; }
+.project-card h2 a:hover, .project-card h2 a:focus-visible { color: var(--accent); }
+.project-card > p { color: var(--ink-soft); margin-top: 0; margin-bottom: var(--space-4); }
+.project-card-links {
+  display: flex;
+  gap: var(--space-5);
+  font-size: 0.875rem;
+}
+
+/* ---------------------------------------------------
+   Project detail pages
+--------------------------------------------------- */
+.back-link { font-size: 0.875rem; }
+.repo-link { display: inline-block; font-size: 0.9375rem; }
+
+/* ---------------------------------------------------
+   Achievements
+--------------------------------------------------- */
+.achievement-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+@media (min-width: 640px) {
+  .achievement-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.achievement-card {
+  background: var(--bg-alt);
+  border-top: 3px solid var(--accent);
+  padding: var(--space-5);
+}
+.achievement-card h2 {
+  font-size: 1.125rem;
+  margin-bottom: var(--space-2);
+}
+.achievement-card p {
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+}
+.achievement-card--feature {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-7) var(--space-5);
+  border-top-width: 6px;
+}
+.achievement-card--feature h2 {
+  font-size: 1.5rem;
+  line-height: 1.25;
+  margin-bottom: var(--space-3);
+}
+.achievement-card--feature p {
+  font-size: 1.0625rem;
+}
+
+/* ---------------------------------------------------
+   Resume
+--------------------------------------------------- */
+.editorial-content.is-wide { max-width: none; }
+.resume-embed {
+  width: 100%;
+  max-width: 860px;
+  height: 60vh;
+  min-height: 520px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg-alt);
+}
+@media (min-width: 640px) {
+  .resume-embed { height: 75vh; min-height: 640px; }
+}
+@media (min-width: 1024px) {
+  .resume-embed { height: 82vh; min-height: 720px; }
+}
+.resume-fallback { padding: var(--space-5); color: var(--ink-soft); }
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--bg);
+  background: var(--accent);
+  padding: var(--space-3) var(--space-6);
+  border-radius: 3px;
+  transition: transform 150ms ease, opacity 150ms ease;
+}
+.btn:hover, .btn:focus-visible { opacity: 0.88; transform: translateY(-2px); }
+
+/* ---------------------------------------------------
+   Contact
+--------------------------------------------------- */
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  font-size: 1.0625rem;
+}
+@media (min-width: 640px) {
+  .contact-links { flex-direction: row; gap: var(--space-7); }
+}
+
+
+/* ---------------------------------------------------
+   Footer
+--------------------------------------------------- */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: var(--space-6) 0;
+  color: var(--ink-soft);
+  font-size: 0.875rem;
+}
+
+/* ---------------------------------------------------
+   Scroll-reveal (JS-controlled)
+--------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 550ms ease-out, transform 550ms ease-out;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-img {
+  transform: translateY(20px) scale(0.97);
+}
+.reveal-img.is-visible {
+  transform: translateY(0) scale(1);
+}
+
+/* ---------------------------------------------------
+   Photos
+--------------------------------------------------- */
+.photo-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  margin-top: var(--space-5);
+}
+@media (min-width: 640px) {
+  .photo-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.photo {
+  margin: 0;
+  border: 1px solid var(--border);
+}
+.photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.photo figcaption {
+  padding: var(--space-3) var(--space-4);
+  font-size: 0.8125rem;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--border);
+  background: var(--bg-alt);
+}

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyVoice &middot; Rochak Ghimire</title>
+<meta name="description" content="MyVoice: a full-stack AI coaching platform for K-12 students with IEPs, orchestrating four model roles across a four-stage workflow.">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MyVoice &middot; Rochak Ghimire">
+<meta property="og:description" content="MyVoice: a full-stack AI coaching platform for K-12 students with IEPs, orchestrating four model roles across a four-stage workflow.">
+<meta property="og:url" content="https://kenzoh33.github.io/projects/myvoice.html">
+<meta property="og:image" content="https://kenzoh33.github.io/assets/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MyVoice &middot; Rochak Ghimire">
+<meta name="twitter:description" content="MyVoice: a full-stack AI coaching platform for K-12 students with IEPs, orchestrating four model roles across a four-stage workflow.">
+<meta name="twitter:image" content="https://kenzoh33.github.io/assets/images/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500;600;700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="site-nav" aria-label="Primary">
+    <a class="nav-name" href="../index.html">Rochak Ghimire</a>
+    <ul class="nav-links">
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../projects.html" aria-current="page">Projects</a></li>
+      <li><a href="../achievements.html">Achievements</a></li>
+      <li><a href="../resume.html">Resume</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="wrap">
+    <div class="editorial-row">
+      <p class="editorial-label">Project</p>
+      <div class="editorial-content" data-reveal-group>
+        <p class="back-link reveal"><a class="link-underline" href="../projects.html">&larr; All projects</a></p>
+        <h1 class="reveal">MyVoice</h1>
+        <p class="repo-link reveal"><a class="link-underline" href="https://github.com/Kenzoh33/myvoice" target="_blank" rel="noopener">View on GitHub &#8599;</a></p>
+        <p class="reveal">A full-stack coaching platform that helps K-12 students with IEPs and 504 plans practice self-advocacy. I designed it around four coordinated model roles: a Haiku-based classifier and a Sonnet-based generator running across a four-stage workflow, backed by a stateless Express API and a React/Vite frontend.</p>
+        <p class="reveal">The interesting engineering problem was constraining a language model to a fixed taxonomy. A tool-use-constrained classification layer maps whatever a student types into one of 18 canonical accommodation categories, enforcing structured output at the API boundary rather than hoping the model stays in its lane. Production hardening includes per-IP rate limiting, CORS allowlisting, and 40-turn conversation history truncation. It also ships a zero-key MOCK fixture mode that runs the full four-stage workflow offline, no network calls and no API cost, so the whole system can be evaluated without touching a live key. Built solo.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer wrap">
+  <p>Rochak Ghimire &middot; <a class="link-underline" href="../about.html#contact">Get in touch</a></p>
+</footer>
+
+<script src="../js/main.js" defer></script>
+</body>
+</html>
