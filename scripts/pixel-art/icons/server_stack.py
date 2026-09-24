@@ -1,0 +1,79 @@
+"""Redis Clone: three stacked server units. Status LEDs blink top to bottom."""
+
+LABEL = "Redis Clone"
+FPS = 5
+
+FRAMES = [
+    """
+    ................
+    .KKKKKKKKKKKKKK.
+    .KRRRRRRRRRRRRK.
+    .KRKKKKKKRRYYRK.
+    .KrrrrrrrrrrrrK.
+    .KKKKKKKKKKKKKK.
+    .KRRRRRRRRRRRRK.
+    .KRKKKKKKRRKKRK.
+    .KrrrrrrrrrrrrK.
+    .KKKKKKKKKKKKKK.
+    .KRRRRRRRRRRRRK.
+    .KRKKKKKKRRKKRK.
+    .KrrrrrrrrrrrrK.
+    .KKKKKKKKKKKKKK.
+    ..KK........KK..
+    ................
+    """,
+    """
+    ................
+    .KKKKKKKKKKKKKK.
+    .KRRRRRRRRRRRRK.
+    .KRKKKKKKRRKKRK.
+    .KrrrrrrrrrrrrK.
+    .KKKKKKKKKKKKKK.
+    .KRRRRRRRRRRRRK.
+    .KRKKKKKKRRYYRK.
+    .KrrrrrrrrrrrrK.
+    .KKKKKKKKKKKKKK.
+    .KRRRRRRRRRRRRK.
+    .KRKKKKKKRRKKRK.
+    .KrrrrrrrrrrrrK.
+    .KKKKKKKKKKKKKK.
+    ..KK........KK..
+    ................
+    """,
+    """
+    ................
+    .KKKKKKKKKKKKKK.
+    .KRRRRRRRRRRRRK.
+    .KRKKKKKKRRKKRK.
+    .KrrrrrrrrrrrrK.
+    .KKKKKKKKKKKKKK.
+    .KRRRRRRRRRRRRK.
+    .KRKKKKKKRRKKRK.
+    .KrrrrrrrrrrrrK.
+    .KKKKKKKKKKKKKK.
+    .KRRRRRRRRRRRRK.
+    .KRKKKKKKRRYYRK.
+    .KrrrrrrrrrrrrK.
+    .KKKKKKKKKKKKKK.
+    ..KK........KK..
+    ................
+    """,
+    """
+    ................
+    .KKKKKKKKKKKKKK.
+    .KRRRRRRRRRRRRK.
+    .KRKKKKKKRRKKRK.
+    .KrrrrrrrrrrrrK.
+    .KKKKKKKKKKKKKK.
+    .KRRRRRRRRRRRRK.
+    .KRKKKKKKRRKKRK.
+    .KrrrrrrrrrrrrK.
+    .KKKKKKKKKKKKKK.
+    .KRRRRRRRRRRRRK.
+    .KRKKKKKKRRKKRK.
+    .KrrrrrrrrrrrrK.
+    .KKKKKKKKKKKKKK.
+    ..KK........KK..
+    ................
+    """,
+]

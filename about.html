@@ -42,7 +42,44 @@
 <main id="main">
   <section class="wrap">
     <div class="editorial-row">
-      <h1 class="editorial-label">About</h1>
+      <div class="editorial-aside">
+        <h1 class="editorial-label">About</h1>
+        <figure class="turntable">
+          <button class="turntable-deck" type="button" aria-pressed="false" disabled aria-label="Play the beat">
+            <svg viewBox="0 0 200 160" aria-hidden="true">
+              <rect class="plinth" x="4" y="6" width="192" height="148" rx="10"/>
+              <circle class="platter" cx="82" cy="80" r="63"/>
+              <g class="record">
+                <circle class="vinyl" cx="82" cy="80" r="58"/>
+                <circle class="groove" cx="82" cy="80" r="51"/>
+                <circle class="groove" cx="82" cy="80" r="44"/>
+                <circle class="groove" cx="82" cy="80" r="37"/>
+                <circle class="groove" cx="82" cy="80" r="30"/>
+                <circle class="label" cx="82" cy="80" r="17"/>
+                <line class="label-mark" x1="82" y1="68" x2="82" y2="74"/>
+                <circle class="spindle" cx="82" cy="80" r="2.5"/>
+              </g>
+              <path class="sheen" d="M 44 52 A 48 48 0 0 1 66 36"/>
+              <g class="tonearm">
+                <rect class="arm-part" x="162" y="8" width="12" height="10" rx="2"/>
+                <line class="arm-line" x1="168" y1="30" x2="168" y2="104"/>
+                <line class="arm-line" x1="168" y1="104" x2="162" y2="114"/>
+                <rect class="arm-part" x="155" y="111" width="12" height="9" rx="2" transform="rotate(30 161 115)"/>
+                <circle class="arm-part" cx="168" cy="30" r="9"/>
+              </g>
+              <circle class="led" cx="178" cy="138" r="4"/>
+              <rect class="arm-part" x="18" y="132" width="22" height="10" rx="2"/>
+            </svg>
+          </button>
+          <div class="turntable-bars" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <figcaption>
+            <span class="turntable-title">01 &middot; boom-bap &middot; 90 BPM</span>
+            <button class="turntable-next" type="button" aria-label="Next beat" disabled>
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3.5 L9 8 L3 12.5 Z"/><line x1="12" y1="3.5" x2="12" y2="12.5"/></svg>
+            </button>
+          </figcaption>
+        </figure>
+      </div>
       <div class="editorial-content" data-reveal-group>
         <p class="reveal entry-meta">CS Junior, Morgan State University &middot; Clara Adams Honors College &middot; Baltimore, MD</p>
         <p class="reveal">I like building things, and I like automating things even more. Give me a task I have to repeat, and I'm already looking for a way to avoid doing it a third time. People who know me tend to call me good company, someone who takes the work seriously without taking himself too seriously.</p>
@@ -65,5 +102,6 @@
 </footer>
 
 <script src="js/main.js" defer></script>
+<script src="js/turntable.js" defer></script>
 </body>
 </html>
