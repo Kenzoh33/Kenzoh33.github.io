@@ -1,0 +1,42 @@
+[
+  {
+    "name": "avatar-wave",
+    "label": "Home",
+    "size": 32,
+    "frames": 4,
+    "fps": 4,
+    "file": "avatar-wave.png"
+  },
+  {
+    "name": "speech",
+    "label": "MyVoice",
+    "size": 16,
+    "frames": 3,
+    "fps": 4,
+    "file": "speech.png"
+  },
+  {
+    "name": "server-stack",
+    "label": "Redis Clone",
+    "size": 16,
+    "frames": 4,
+    "fps": 5,
+    "file": "server-stack.png"
+  },
+  {
+    "name": "mood-lens",
+    "label": "MoodLens",
+    "size": 16,
+    "frames": 3,
+    "fps": 3,
+    "file": "mood-lens.png"
+  },
+  {
+    "name": "terminal",
+    "label": "advProm",
+    "size": 16,
+    "frames": 4,
+    "fps": 3,
+    "file": "terminal.png"
+  }
+]
