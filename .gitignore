@@ -1,3 +1,5 @@
-CLAUDE.md
 .DS_Store
 node_modules/
+__pycache__/
+design-preview.html
+pixel-preview.html

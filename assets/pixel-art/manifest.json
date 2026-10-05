@@ -38,5 +38,21 @@
     "frames": 4,
     "fps": 3,
     "file": "terminal.png"
+  },
+  {
+    "name": "envelope",
+    "label": "Developer's Driver",
+    "size": 16,
+    "frames": 4,
+    "fps": 3,
+    "file": "envelope.png"
+  },
+  {
+    "name": "photo-swipe",
+    "label": "Photo Cleaner",
+    "size": 16,
+    "frames": 4,
+    "fps": 4,
+    "file": "photo-swipe.png"
   }
 ]
