@@ -3,23 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#FAF8F4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161512" media="(prefers-color-scheme: dark)">
+<script>
+  (function () {
+    var t;
+    try { t = localStorage.getItem('theme'); } catch (e) {}
+    if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.dataset.theme = t;
+  })();
+</script>
 <title>About &middot; Rochak Ghimire</title>
-<meta name="description" content="A bit about who I am outside of code, from Baltimore, MD: building things, table tennis, soccer, hip-hop, and travel.">
+<meta name="description" content="CS junior and Clara Adams Honors College Scholar at Morgan State. I grew up in Nepal, research AI at the HAX Lab, and I'm looking for Summer 2027 internships.">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="About &middot; Rochak Ghimire">
-<meta property="og:description" content="A bit about who I am outside of code, from Baltimore, MD: building things, table tennis, soccer, hip-hop, and travel.">
-<meta property="og:url" content="https://kenzoh33.github.io/about.html">
-<meta property="og:image" content="https://kenzoh33.github.io/assets/images/og-image.png">
+<meta property="og:description" content="CS junior and Clara Adams Honors College Scholar at Morgan State. I grew up in Nepal, research AI at the HAX Lab, and I'm looking for Summer 2027 internships.">
+<meta property="og:url" content="https://rochakghimire.com/about.html">
+<meta property="og:image" content="https://rochakghimire.com/assets/images/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="About &middot; Rochak Ghimire">
-<meta name="twitter:description" content="A bit about who I am outside of code, from Baltimore, MD: building things, table tennis, soccer, hip-hop, and travel.">
-<meta name="twitter:image" content="https://kenzoh33.github.io/assets/images/og-image.png">
+<meta name="twitter:description" content="CS junior and Clara Adams Honors College Scholar at Morgan State. I grew up in Nepal, research AI at the HAX Lab, and I'm looking for Summer 2027 internships.">
+<meta name="twitter:image" content="https://rochakghimire.com/assets/images/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500;600;700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@200..800&family=Archivo:wght@100..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="page-lines">
@@ -29,13 +40,22 @@
 <header class="site-header">
   <nav class="site-nav" aria-label="Primary">
     <a class="nav-name" href="index.html">Rochak Ghimire</a>
-    <ul class="nav-links">
-      <li><a href="about.html" aria-current="page">About</a></li>
-      <li><a href="research.html">Research</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="achievements.html">Achievements</a></li>
-      <li><a href="resume.html">Resume</a></li>
-    </ul>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="about.html" aria-current="page">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="achievements.html">Achievements</a></li>
+        <li><a href="resume.html">Resume</a></li>
+      </ul>
+      <div class="nav-tools">
+        <button class="tool-btn palette-open" type="button" aria-label="Open command palette" aria-keyshortcuts="Meta+K Control+K"><kbd>&#8984;K</kbd></button>
+        <button class="tool-btn theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false">
+          <svg class="icon-sun" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="8" r="3"/><path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3 3l1 1M12 12l1 1M3 13l1-1M12 4l1-1"/></svg>
+          <svg class="icon-moon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M13.5 9.5A5.5 5.5 0 0 1 6.5 2.5a5.5 5.5 0 1 0 7 7z"/></svg>
+        </button>
+      </div>
+    </div>
   </nav>
 </header>
 
@@ -80,16 +100,36 @@
           </figcaption>
         </figure>
       </div>
-      <div class="editorial-content" data-reveal-group>
-        <p class="reveal entry-meta">CS Junior, Morgan State University &middot; Clara Adams Honors College &middot; Baltimore, MD</p>
-        <p class="reveal">I like building things, and I like automating things even more. Give me a task I have to repeat, and I'm already looking for a way to avoid doing it a third time. People who know me tend to call me good company, someone who takes the work seriously without taking himself too seriously.</p>
-        <p class="reveal">Table tennis is where that competitive streak really shows. I'm better than I let on, and if you challenge me, I won't go easy on you. Soccer these days is more of a spectator habit than an active one, though I'll never turn down a pickup game. Outside of that, I'm almost always listening to hip-hop, and there's usually a trip somewhere new in the works.</p>
-        <div class="reveal" id="contact">
-          <p class="editorial-label" style="margin-bottom: var(--space-3);">Get in touch</p>
+      <div class="editorial-content is-wide" data-reveal-group>
+        <p class="reveal about-lede">I'm a Computer Science junior and Clara Adams Honors College Scholar at Morgan State University. I grew up in Nepal, and I now live and study in Baltimore.</p>
+
+        <section class="reveal about-block" aria-labelledby="about-why">
+          <h2 id="about-why" class="editorial-label">Why computer science</h2>
+          <p>I got into computer science because I wanted to understand how things actually work, and that curiosity still drives most of what I do. I enjoy taking something complicated, figuring out how it fits together, and building something useful with it.</p>
+        </section>
+
+        <section class="reveal about-block" aria-labelledby="about-research">
+          <h2 id="about-research" class="editorial-label">Research</h2>
+          <p>Most of my work is in AI and software. This past summer, I joined a research program at Morgan State's <a class="link-underline" href="research.html">CEAMLS lab</a>, where I worked on making AI models for detecting cardiovascular diseases more reliable over time. I presented that work at a national symposium, which was one of the proudest moments of my college career so far. Today, I'm an undergraduate researcher in the <a class="link-underline" href="research.html">Human-AI eXperience (HAX) Lab</a>, where I explore how people and AI can work well together.</p>
+        </section>
+
+        <section class="reveal about-block" aria-labelledby="about-building">
+          <h2 id="about-building" class="editorial-label">Building for people</h2>
+          <p>I also like building things for real people. One project I'm especially proud of is <a class="link-underline" href="projects/myvoice.html">MyVoice</a>, a tool I built to help K-12 students learn to speak up for the support they need in school.</p>
+        </section>
+
+        <section class="reveal about-block" aria-labelledby="about-outside">
+          <h2 id="about-outside" class="editorial-label">Outside of work</h2>
+          <p>Outside of class and code, you'll usually find me at a ping pong table, or watching soccer with friends.</p>
+        </section>
+
+        <div class="reveal about-cta" id="contact">
+          <h2 class="editorial-label">Get in touch</h2>
+          <p class="about-cta-line">I'm currently looking for Summer 2027 internships in software engineering, AI, and machine learning. If you'd like to connect, I'd be glad to hear from you.</p>
           <ul class="contact-links">
-            <li><a class="link-underline" href="mailto:rochakghimire2@gmail.com">Email</a></li>
-            <li><a class="link-underline" href="https://github.com/Kenzoh33" target="_blank" rel="noopener">GitHub</a></li>
-            <li><a class="link-underline" href="https://linkedin.com/in/rochakghimire" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a class="link-underline contact-link" href="mailto:rochakghimire2@gmail.com"><svg class="contact-icon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="1.5" y="3" width="13" height="10" rx="1"/><path d="M1.5 4l6.5 5 6.5-5"/></svg>Email</a></li>
+            <li><a class="link-underline contact-link" href="https://github.com/Kenzoh33" target="_blank" rel="noopener"><svg class="contact-icon" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a></li>
+            <li><a class="link-underline contact-link" href="https://linkedin.com/in/rochakghimire" target="_blank" rel="noopener"><svg class="contact-icon" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M14.82 0H1.18C.53 0 0 .52 0 1.15v13.7C0 15.48.53 16 1.18 16h13.64c.65 0 1.18-.52 1.18-1.15V1.15C16 .52 15.47 0 14.82 0zM4.75 13.63H2.38V6h2.37v7.63zM3.56 4.96a1.38 1.38 0 110-2.75 1.38 1.38 0 010 2.75zm10.07 8.67h-2.37V9.92c0-.89-.02-2.02-1.23-2.02-1.23 0-1.42.96-1.42 1.96v3.77H6.24V6h2.27v1.04h.03c.32-.6 1.09-1.23 2.25-1.23 2.4 0 2.84 1.58 2.84 3.64v4.18z"/></svg>LinkedIn</a></li>
           </ul>
         </div>
       </div>
@@ -97,11 +137,13 @@
   </section>
 </main>
 
-<footer class="site-footer wrap">
-  <p>Rochak Ghimire &middot; <a class="link-underline" href="about.html#contact">Get in touch</a></p>
-</footer>
+<aside class="social-rail" aria-label="Elsewhere">
+  <a href="https://github.com/Kenzoh33" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
+  <a href="https://linkedin.com/in/rochakghimire" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M14.82 0H1.18C.53 0 0 .52 0 1.15v13.7C0 15.48.53 16 1.18 16h13.64c.65 0 1.18-.52 1.18-1.15V1.15C16 .52 15.47 0 14.82 0zM4.75 13.63H2.38V6h2.37v7.63zM3.56 4.96a1.38 1.38 0 110-2.75 1.38 1.38 0 010 2.75zm10.07 8.67h-2.37V9.92c0-.89-.02-2.02-1.23-2.02-1.23 0-1.42.96-1.42 1.96v3.77H6.24V6h2.27v1.04h.03c.32-.6 1.09-1.23 2.25-1.23 2.4 0 2.84 1.58 2.84 3.64v4.18z"/></svg></a>
+</aside>
+<p class="site-copy wrap">&copy; 2026 Rochak Ghimire</p>
 
 <script src="js/main.js" defer></script>
-<script src="js/turntable.js" defer></script>
-</body>
+<script src="js/palette.js" defer></script>
+<script src="js/turntable.js" defer></script></body>
 </html>

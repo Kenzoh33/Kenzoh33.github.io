@@ -26,7 +26,7 @@ sys.path.insert(0, str(HERE / "icons"))  # lets icons import shared helpers like
 from palette import PALETTE  # noqa: E402
 
 # Display order in the preview; any icon file not listed is appended alphabetically.
-ORDER = ["avatar-wave", "speech", "server-stack", "mood-lens", "terminal"]
+ORDER = ["avatar-wave", "speech", "server-stack", "mood-lens", "terminal", "envelope", "photo-swipe"]
 
 
 def hex_to_rgba(value):
