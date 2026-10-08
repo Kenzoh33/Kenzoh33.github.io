@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#FAF8F4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161512" media="(prefers-color-scheme: dark)">
+<script>
+  (function () {
+    var t;
+    try { t = localStorage.getItem('theme'); } catch (e) {}
+    if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.dataset.theme = t;
+  })();
+</script>
+<title>Page not found &middot; Rochak Ghimire</title>
+<meta name="description" content="This page could not load. Play a game of table tennis instead.">
+<meta name="robots" content="noindex">
+<!-- GitHub Pages serves this file at whatever broken URL was requested,
+     so every path here is root-absolute to work at any depth. -->
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@200..800&family=Archivo:wght@100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="oob-tools" hidden>
+  <button class="tool-btn" id="oob-pause" type="button" aria-pressed="false">Pause</button>
+  <button class="tool-btn" id="oob-end" type="button">End game</button>
+  <button class="tool-btn" id="oob-sound" type="button" aria-pressed="true">Sound: on</button>
+  <button class="tool-btn theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false">
+    <svg class="icon-sun" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="8" r="3"/><path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3 3l1 1M12 12l1 1M3 13l1-1M12 4l1-1"/></svg>
+    <svg class="icon-moon" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M13.5 9.5A5.5 5.5 0 0 1 6.5 2.5a5.5 5.5 0 1 0 7 7z"/></svg>
+  </button>
+</header>
+
+<main id="main" class="oob">
+  <p class="oob-code">Error 404</p>
+  <h1>This page could not load.</h1>
+  <noscript><p class="oob-noscript"><a class="link-underline" href="/index.html">Head back to the home page &rarr;</a></p></noscript>
+
+  <p class="oob-score" id="oob-score" hidden></p>
+  <canvas class="oob-table" id="oob-table" tabindex="0" hidden aria-label="Table tennis game against the computer. Press Space to serve, move with the mouse or arrow keys, Escape to pause."></canvas>
+  <p class="oob-status" id="oob-status" aria-live="polite" hidden>Your serve. Press Space or click.</p>
+  <p class="oob-hint" hidden>Mouse or <kbd>&larr;</kbd><kbd>&uarr;</kbd><kbd>&darr;</kbd><kbd>&rarr;</kbd> / <kbd>WASD</kbd> to move &middot; swing toward the net for power &middot; <kbd>Esc</kbd> pauses &middot; first to 11, win by 2</p>
+</main>
+
+<script src="/js/main.js" defer></script>
+<script src="/js/palette.js" defer></script>
+<script src="/js/pong.js" defer></script>
+</body>
+</html>
