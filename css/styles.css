@@ -951,8 +951,9 @@ body.page-lines {
 }
 .photo figcaption {
   padding: var(--space-3) var(--space-4);
-  font-size: 0.8125rem;
-  color: var(--ink-soft);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--ink);
   border-top: 1px solid var(--border);
   background: var(--bg-alt);
 }
@@ -1334,5 +1335,99 @@ body.page-lines {
   width: 100%;
   padding-block: var(--space-6);
   font-size: 0.875rem;
+  color: var(--ink-soft);
+}
+
+/* ---------------------------------------------------
+   404: out of bounds
+   Just the message and a table tennis table (js/pong.js).
+   The game pieces are hidden in the HTML until the script runs.
+--------------------------------------------------- */
+.oob-tools {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+}
+.oob-tools .tool-btn:not(.theme-toggle) { padding: 0 var(--space-3); }
+.oob-tools[hidden], .oob [hidden] { display: none; }
+.oob {
+  --table-w: min(100%, 1400px, calc((100svh - 330px) * 470 / 235));
+  min-height: calc(100svh - 60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-2) var(--space-4) var(--space-5);
+}
+.oob > * { width: var(--table-w); min-width: min(100%, 320px); }
+.oob-code {
+  margin: 0 0 var(--space-2);
+  font-size: 0.8125rem;
+  font-weight: 625;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.oob h1 {
+  font-size: clamp(2rem, 1.4rem + 2.4vw, 3.25rem);
+  line-height: 1.1;
+  margin-bottom: var(--space-5);
+}
+.oob-noscript { margin: 0; }
+.oob-score {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-1);
+  font-family: var(--font-display);
+  font-weight: 750;
+  font-size: 2rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.oob-score .sep { color: var(--ink-soft); font-weight: 400; }
+.oob-score .who {
+  position: relative;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 625;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+/* Dot over whoever is serving */
+.oob-score .who.serving::after {
+  content: '';
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.oob-table {
+  display: block;
+  aspect-ratio: 470 / 235;
+  cursor: none;
+  touch-action: none;
+}
+.oob-table:focus { outline: none; }
+.oob-table:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.oob-status {
+  margin: var(--space-2) 0 0;
+  min-height: 1.6em;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+.oob-hint {
+  margin: var(--space-1) 0 0;
+  font-size: 0.8125rem;
   color: var(--ink-soft);
 }
